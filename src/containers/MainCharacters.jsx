@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import CharacterList from '../components/list/CharacterList';
-import PropTypes from 'prop-types';
 import { fetchCharacters } from '../services/xfilesAPI';
 
 export default class MainCharacters extends Component {
