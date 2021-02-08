@@ -1,28 +1,25 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import CharacterList from '../components/list/CharacterList';
-import { fetchCharacters } from '../services/xfilesAPI';
+import { fetchCharacters } from '../services/heyArnoldAPI';
 
-export default class MainCharacters extends Component {
-  state = {
-    loading: true,
-    characters: [],
-  };
+function MainCharacters() {
+  const [characters, setCharacters] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  async componentDidMount() {
-    const characters = await fetchCharacters();
-    this.setState({
-      loading: false,
-      characters,
+  useEffect(() => {
+    fetchCharacters().then((res) => {
+      setCharacters(res), setLoading(false);
     });
-  }
-  render() {
-    const { loading, characters } = this.state;
+  }, []);
 
-    if (loading) return <h1>Loading...</h1>;
-    return (
+  if (loading) return <h1>Loading...</h1>;
+  return (
+    <>
       <div>
         <CharacterList characters={characters} />
       </div>
-    );
-  }
+    </>
+  );
 }
+
+export default MainCharacters;
