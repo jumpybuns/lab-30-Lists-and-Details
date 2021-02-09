@@ -9,12 +9,17 @@ function ByCharacter() {
   const { name } = useParams();
 
   useEffect(() => {
-    fetchCharacter(name).then((res) =>
-      res.map((item) => {
-        setCharacters(item), setLoading(false);
-      })
-    );
+    fetchCharacter(name).then(([res]) => {
+      setCharacters(res), setLoading(false);
+    });
   }, []);
+  // useEffect(() => {
+  //   fetchCharacter(name).then((res) =>
+  //     res.map((item) => {
+  //       setCharacters(item), setLoading(false);
+  //     })
+  //   );
+  // }, []);
 
   if (loading) return <h1>Loading...</h1>;
   return (
