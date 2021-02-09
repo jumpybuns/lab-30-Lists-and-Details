@@ -1,19 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Details({ name, image, characters }) {
+function Details({ characters }) {
   const details = characters.map((character) => {
-    <li key={character.name}>{details}</li>;
+    <li key={character.name}>{character}</li>;
   });
 
   return (
     <>
-      <figure>
-        <img src={image} alt={name} />
-        <figcaption>
-          <p>{name}</p>
-        </figcaption>
-      </figure>
+      <pre>
+        <p>{details}</p>
+      </pre>
     </>
   );
 }
