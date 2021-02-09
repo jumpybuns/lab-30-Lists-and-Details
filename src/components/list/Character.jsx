@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const Character = ({ name, image }) => (
-  <Link to={`/details/${name}`}>
-    <figure>
+  <figure>
+    <Link to={`/details/${name}`}>
       <img src={image} alt={name} />
       <figcaption>
         <p>{name}</p>
       </figcaption>
-    </figure>
-  </Link>
+    </Link>
+  </figure>
 );
 
 export default Character;

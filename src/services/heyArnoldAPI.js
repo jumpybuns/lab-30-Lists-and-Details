@@ -9,7 +9,7 @@ export const fetchCharacters = () => {
     );
 };
 
-export const fetchCharacter = () => {
+export const fetchCharacter = (name) => {
   return fetch(
     `https://hey-arnold-api.herokuapp.com/api/v1/characters?name=${name}`
   )

@@ -1,24 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import Character from '../components/list/Character';
+import CharacterList from '../components/list/CharacterList';
 import { fetchCharacter } from '../services/heyArnoldAPI';
 import PropTypes from 'prop-types';
 
 function ByCharacter() {
-  const [character, setCharacter] = useState([]);
+  const [characters, setCharacters] = useState([]);
   const [loading, setLoading] = useState(true);
-  const { name } = useParams();
+  const { name, image } = useParams();
 
   useEffect(() => {
     fetchCharacter(name).then((res) => {
-      setCharacter(res), setLoading(false);
+      setCharacters(res), setLoading(false);
     });
   }, []);
 
   if (loading) return <h1>Loading...</h1>;
   return (
     <div>
-      <Character character={character} />
+      <CharacterList characters={characters} />
+      <img src={image} alt={name} />
+      <p>{name}</p>
     </div>
   );
 }
