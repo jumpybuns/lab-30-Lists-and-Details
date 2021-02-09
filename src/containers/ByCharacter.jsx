@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import CharacterList from '../components/list/CharacterList';
+import Character from '../components/list/Character';
 import { fetchCharacters } from '../services/heyArnoldAPI';
 
 function ByCharacter() {
@@ -15,7 +15,9 @@ function ByCharacter() {
   if (loading) return <h1>Loading...</h1>;
   return (
     <div>
-      <CharacterList character={character} />
+      <Character character={character} />
+      <h1>{character[0]?.name}</h1>
+      <img src={character[0]?.image} />
     </div>
   );
 }
