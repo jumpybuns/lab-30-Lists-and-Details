@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Details({ characters }) {
+function Details({ name, image, characters }) {
   const details = characters.map((character) => {
     <li key={character.name}>{details}</li>;
   });
@@ -9,7 +9,10 @@ function Details({ characters }) {
   return (
     <>
       <figure>
-        <figcaption>{details}</figcaption>
+        <img src={image} alt={name} />
+        <figcaption>
+          <p>{name}</p>
+        </figcaption>
       </figure>
     </>
   );
@@ -18,10 +21,7 @@ function Details({ characters }) {
 export default Details;
 
 Details.propTypes = {
-  characters: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      image: PropTypes.string.isRequired,
-    })
-  ),
+  characters: PropTypes.array.isRequired,
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
 };
