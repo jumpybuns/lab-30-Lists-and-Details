@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component renders App 1`] = `
+<DocumentFragment>
+  <div>
+    <h1>
+      Home of the Hey Arnold! MEGA FAN SITE 
+    </h1>
+    <h1>
+      Loading...
+    </h1>
+  </div>
+</DocumentFragment>
+`;
