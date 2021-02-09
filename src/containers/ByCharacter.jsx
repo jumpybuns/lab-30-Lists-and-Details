@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Character from '../components/list/Character';
-import { fetchCharacters } from '../services/heyArnoldAPI';
+import CharacterList from '../components/list/CharacterList';
+import { fetchCharacter } from '../services/heyArnoldAPI';
 import PropTypes from 'prop-types';
 
 function ByCharacter() {
@@ -8,7 +8,7 @@ function ByCharacter() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchCharacters().then((res) => {
+    fetchCharacter(match.params.character).then((res) => {
       setCharacter(res), setLoading(false);
     });
   }, []);
@@ -16,16 +16,17 @@ function ByCharacter() {
   if (loading) return <h1>Loading...</h1>;
   return (
     <div>
-      <Character character={character} />
-      <h1>{character[0]?.name}</h1>
-      <img src={character[0]?.image} />
+      <CharacterList character={character} />
     </div>
   );
 }
 
 ByCharacter.propTypes = {
-  name: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
+  atch: PropTypes.shape({
+    params: PropTypes.shape({
+      character: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
 };
 
 export default ByCharacter;
