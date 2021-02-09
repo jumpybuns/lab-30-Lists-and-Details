@@ -4,7 +4,9 @@ exports[`App component renders App 1`] = `
 <DocumentFragment>
   <div>
     <h1>
-      Home of the Hey Arnold! MEGA FAN SITE 
+      Welcome to the Hey, I am Arnold! 
+      <br />
+      **MEGA FAN SITE** 
     </h1>
     <h1>
       Loading...
