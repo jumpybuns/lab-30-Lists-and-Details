@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Character from '../components/list/Character';
 import { fetchCharacters } from '../services/heyArnoldAPI';
+import PropTypes from 'prop-types';
 
 function ByCharacter() {
   const [character, setCharacter] = useState([]);
@@ -21,5 +22,10 @@ function ByCharacter() {
     </div>
   );
 }
+
+ByCharacter.propTypes = {
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+};
 
 export default ByCharacter;

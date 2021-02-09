@@ -9,7 +9,7 @@ const CharacterList = ({ characters }) => {
     </li>
   ));
 
-  return <ul data-testid="characters"> {characterElements}</ul>;
+  return <ul> {characterElements}</ul>;
 };
 
 export default CharacterList;
