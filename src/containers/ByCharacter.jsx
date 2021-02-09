@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import CharacterList from '../components/list/CharacterList';
+import Details from '../components/details/Details';
 import { fetchCharacter } from '../services/heyArnoldAPI';
 import PropTypes from 'prop-types';
 
 function ByCharacter() {
   const [characters, setCharacters] = useState([]);
   const [loading, setLoading] = useState(true);
-  const { name, image } = useParams();
+  const { name } = useParams();
 
   useEffect(() => {
     fetchCharacter(name).then((res) => {
@@ -18,9 +18,7 @@ function ByCharacter() {
   if (loading) return <h1>Loading...</h1>;
   return (
     <div>
-      <CharacterList characters={characters} />
-      <img src={image} alt={name} />
-      <p>{name}</p>
+      <Details {...characters} />
     </div>
   );
 }
