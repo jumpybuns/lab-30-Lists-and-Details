@@ -1,11 +1,11 @@
 import React from 'react';
 import { render, cleanup } from '@testing-library/react';
-import ByCharacter from './ByCharacter';
+import MainCharacters from './MainCharacters';
 
-describe('ByCharacter component', () => {
+describe('MainCharacters component', () => {
   afterEach(() => cleanup());
-  it('renders ByCharacter', async () => {
-    render(<ByCharacter character="character" />);
+  it('renders MainCharacters', async () => {
+    render(<MainCharacters character="character" />);
 
     screen.getByText('Loading...');
 
