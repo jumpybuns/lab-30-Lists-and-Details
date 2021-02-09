@@ -2,11 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function Details({ name, image }) {
-  // const details = characters.map((character) => {
-  //   <li key={character.name}>{character}</li>;
-  // });
-  // console.log(name);
-
   return (
     <>
       <figure>
